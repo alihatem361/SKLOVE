@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK LOVE - Hero Section</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --bg-color: #e9e9f2; /* تحديث لون الخلفية ليتطابق مع الصورة */
+            --text-color: #1a1a1a;
+            --primary-color: #1a1a1a;
+            --white-color: #ffffff;
+            --font-family: 'Cairo', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Header / Navbar --- */
+        .main-header {
+            padding: 20px 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .main-nav a:hover {
+            color: #8a2be2;
+        }
+        
+        .header-cta {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 24px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .header-cta:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            width: 28px;
+            height: 22px;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger-menu .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-color);
+            border-radius: 2px;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 60px 0;
+        }
+
+        .hero-section .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-text h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            max-width: 450px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #333;
+        }
+
+        .btn-secondary {
+            background-color: var(--white-color);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-color);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- Features Section (التعديل هنا) --- */
+        .features-section {
+            padding: 40px 0 60px 0; /* إضافة مسافة علوية */
+        }
+
+        .features-grid {
+            display: grid;
+            /* 4 أعمدة في الشاشات الكبيرة */
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* زيادة المسافة بين الأيقونة والنص */
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .feature-icon svg {
+            width: 22px;
+            height: 22px;
+            color: var(--bg-color); /* لون الأيقونة أبيض */
+        }
+
+        .feature-item p {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.5;
+            max-width: 180px; /* تحديد عرض النص لمنع التمدد الزائد */
+        }
+
+        /* --- Responsive Styles (التعديل هنا) --- */
+        @media (max-width: 992px) {
+            .features-grid {
+                /* عمودين في الشاشات المتوسطة */
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px; /* زيادة المسافة بين العناصر */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                width: 90%;
+                margin: 0 auto;
+                background-color: var(--white-color);
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .header-cta {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .hero-section {
+                padding: 40px 0;
+            }
+
+            .hero-section .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .hero-image {
+                order: 1;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .features-grid {
+                /* عمودين في الشاشات الصغيرة جداً */
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .feature-item p {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">SK LOVE</div>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">المنتجات</a></li>
+                    <li><a href="#">المراجعات</a></li>
+                    <li><a href="#">المدونات</a></li>
+                    <li><a href="#">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="header-cta">تسوق الآن</a>
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-text">
+                    <h1>
+                        خفيف كالهوا.<br>
+                        عميق كالعناية.
+                    </h1>
+                    <p>
+                        ترطيب سريع الامتصاص وغير لزج يختص ببشرتك حتى الصبح.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">تسوق الآن</a>
+                        <a href="#" class="btn btn-secondary">جربي الفرق</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="./heroImage.png" alt="صورة منتج كريم العناية بالبشرة">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section (تم التعديل بالكامل) -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <!-- أيقونة ساعة -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <p>يمنح ترطيب يدوم حتى 12 ساعة</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                             <!-- أيقونة عداد سرعة -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12v-4"/><path d="M12 12l4 4"/><path d="M12 2a10 10 0 0 0-9.9 9h0a10 10 0 0 0 19.8 0h0A10 10 0 0 0 12 2Z"/><path d="M7 16a3 3 0 1 0 6 0 3 3 0 1 0-6 0Z"/></svg>
+                        </div>
+                        <p>يمتص بسرعة وبدون لمعان</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <!-- أيقونة مستخدمين -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <p>خالي من الموارد الضارة</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <!-- أيقونة قطرة مياه -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                        </div>
+                        <p>تركيبة مائية مناسبة لكل أنواع البشرة</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript للتحكم في قائمة الموبايل
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mainNav = document.getElementById('mainNav');
+
+        hamburgerMenu.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
